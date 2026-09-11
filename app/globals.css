@@ -1,3 +1,4 @@
+
 @import "tailwindcss";
 @import "tw-animate-css";
 @import "../vendor/shadcn-tailwind-4.13.0.css";
@@ -93,6 +94,93 @@ body {
   min-width: 320px;
 }
 button, input { font: inherit; }
+
+.login-shell {
+  min-height: 100dvh;
+  display: grid;
+  place-items: center;
+  padding: 28px;
+  background:
+    radial-gradient(circle at 18% 18%, rgba(255,255,255,.22), transparent 28%),
+    radial-gradient(circle at 86% 82%, rgba(29,113,101,.22), transparent 32%),
+    #55baab;
+}
+.login-card {
+  width: min(440px, 100%);
+  padding: 34px;
+  border: 1px solid rgba(255,255,255,.58);
+  border-radius: 22px;
+  background: rgba(255,255,255,.97);
+  box-shadow: 0 28px 70px rgba(25,79,71,.24);
+}
+.login-brand-row { display: flex; align-items: center; gap: 16px; }
+.login-worldline-logo {
+  width: 78px;
+  height: 78px;
+  object-fit: contain;
+  border-radius: 14px;
+  background: #55baab;
+}
+.login-brand-divider { width: 1px; height: 34px; background: #dce7e4; }
+.login-genesys-lockup { display: flex; align-items: center; gap: 8px; color: #526863; font-size: .82rem; font-weight: 700; }
+.login-copy { margin-top: 28px; }
+.login-eyebrow { color: #2f8277; font-size: .72rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
+.login-copy h1 { margin-top: 8px; color: #173a34; font-size: 1.9rem; font-weight: 700; letter-spacing: -.04em; }
+.login-copy p { margin-top: 9px; color: #687b77; font-size: .9rem; line-height: 1.6; }
+.login-form { display: grid; gap: 17px; margin-top: 26px; }
+.login-form label { display: grid; gap: 7px; color: #35534d; font-size: .82rem; font-weight: 700; }
+.login-form input {
+  width: 100%;
+  min-height: 48px;
+  padding: 0 13px;
+  border: 1px solid #cadbd7;
+  border-radius: 10px;
+  outline: none;
+  background: white;
+  color: #173a34;
+  font-size: .92rem;
+  font-weight: 400;
+  transition: border-color .16s ease, box-shadow .16s ease;
+}
+.login-form input::placeholder { color: #99a7a4; }
+.login-form input:focus { border-color: #55baab; box-shadow: 0 0 0 3px rgba(85,186,171,.18); }
+.login-error { margin: -4px 0 0; color: #b52c3b; font-size: .8rem; line-height: 1.4; }
+.login-submit { min-height: 48px; width: 100%; background: #2f8277 !important; color: white !important; font-weight: 700; }
+.login-submit:hover { background: #286f66 !important; }
+.login-submit:disabled { cursor: wait; opacity: .66; }
+.login-footnote { margin-top: 22px; color: #83928f; font-size: .72rem; text-align: center; }
+.auth-loading {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 14px 18px;
+  border: 1px solid rgba(255,255,255,.6);
+  border-radius: 999px;
+  background: rgba(255,255,255,.94);
+  box-shadow: 0 18px 44px rgba(25,79,71,.2);
+  color: #315f57;
+  font-size: .86rem;
+  font-weight: 700;
+}
+.auth-loading-dot { width: 9px; height: 9px; border-radius: 999px; background: #55baab; animation: auth-pulse 1s ease-in-out infinite; }
+@keyframes auth-pulse { 50% { opacity: .32; transform: scale(.8); } }
+.user-avatar-button {
+  display: flex;
+  width: 36px;
+  height: 36px;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-radius: 999px;
+  background: #2f8277;
+  color: white;
+  font-size: .875rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+.user-avatar-button:hover { background: #286f66; }
+.user-avatar-button:focus-visible { outline: 3px solid rgba(85,186,171,.3); outline-offset: 2px; }
 
 .app-shell {
   min-height: 100vh;
@@ -495,6 +583,8 @@ button, input { font: inherit; }
 }
 
 @media (max-width: 600px) {
+  .login-shell { padding: 16px; }
+  .login-card { padding: 26px 22px; }
   .app-shell { grid-template-columns: 188px minmax(360px, 1fr); overflow-x: auto; }
   .sidebar-shell { padding: 18px 10px; }
   .sidebar-link { padding: 0 10px !important; }
